@@ -1,7 +1,7 @@
 import "./App.css"
 import lemonDesert from "./assets/lemon dessert.jpg"
 import marioAdrian from "./assets/Mario and Adrian b.jpg"
-import bruchetta from "./assets/bruchetta.svg"
+import bruchetta from "./assets/bruchetta.png"
 import greekSalad from "./assets/greek salad.jpg"
 
 function Main() {
