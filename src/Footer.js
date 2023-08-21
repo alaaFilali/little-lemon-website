@@ -1,30 +1,36 @@
-import logo from "./logo.svg"
+import logo from "./assets/Logo.svg"
+import "./App.css"
 
 function Footer() {
-    return <footer>
-        <img src={logo}/>
-        <h6>Doormat Navigation</h6>
-        <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">About</a></li>
-            <li><a href="">Menu</a></li>
-            <li><a href="">Reservation</a></li>
-            <li><a href="">Order online</a></li>
-            <li><a href="">Login</a></li>
-        </ul>
-        <h6>Contact</h6>
-        <ul>
-            <li><a href="">Adress</a></li>
-            <li><a href="">Phone Number</a></li>
-            <li><a href="">Emain</a></li>
-        </ul>
-        <h6>Social Media Links</h6>
-        <ul>
-            <li><a href="">Facebook</a></li>
-            <li><a href="">Instagram</a></li>
-            <li><a href="">Twitter</a></li>
-        </ul>
-    </footer>
+  return <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <img src={logo} alt="Little Lemon Logo" />
+        </div>
+        <div class="col-md-4">
+          <h4>Navigation</h4>
+          <ul class="footer-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h4>Contact Us</h4>
+          <p>Email: info@littlelemon.com</p>
+          <p>Phone: (123) 456-7890</p>
+          <div class="social-icons">
+            <a href="#">facebook</a>
+            <a href="#">twitter</a>
+            <a href="#">instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 }
 
 export default Footer;
