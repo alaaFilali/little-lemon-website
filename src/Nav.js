@@ -15,7 +15,7 @@ function Nav() {
                     <Link class="nav-link" to="/">Home</Link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
+                    <a className="nav-link" href="#about">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#menu">Menu</a>
