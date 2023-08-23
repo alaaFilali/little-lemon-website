@@ -1,5 +1,6 @@
 import chefImage from "./assets/restaurant chef B.jpg";
 import "./App.css";
+import { Link } from 'react-router-dom';
 
 function Header() {
     return <header>
@@ -15,7 +16,10 @@ function Header() {
                         receipies served with modern
                         twist.
                     </p>
+                    <Link to="/booking">
                     <button type="button" class="btn btn-primary">Reserve a Table</button>
+                    </Link>
+                    
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class="text-center">

@@ -6,8 +6,11 @@ function BookingForm({ availableTimes, onAddBooking, dispatch,  }) {
     const [selectedTime, setSelectedTime] = useState('');
     const [numberOfGuests, setNumberOfGuests] = useState(1);
     const [selectedOccasion, setSelectedOccasion] = useState('Birthday');
+    const [error, setError] = useState('');
+
 
     const handleDateChange = async (event) => {
+        setError('');
         const newSelectedDate = event.target.value;
         setSelectedDate(newSelectedDate);
 
@@ -21,19 +24,41 @@ function BookingForm({ availableTimes, onAddBooking, dispatch,  }) {
     };
 
     const handleTimeChange = (event) => {
+        setError('');
         setSelectedTime(event.target.value);
     };
 
     const handleGuestsChange = (event) => {
-        setNumberOfGuests(event.target.value);
+        const newGuests = parseInt(event.target.value);
+        setNumberOfGuests(newGuests);
     };
 
     const handleOccasionChange = (event) => {
+        setError('');
         setSelectedOccasion(event.target.value);
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
+
+        // Validate fields
+        if (!selectedDate || !selectedTime || !availableTimes.includes(selectedTime) || !selectedOccasion) {
+            setError('Please fill in all fields.');
+            return;
+        }
+
+        // Validate date
+        if (!selectedDate) {
+            setError('Please select a date.');
+            return;
+        }
+
+        // Validate time
+        if (!selectedTime || !availableTimes.includes(selectedTime)) {
+            setError('Please select a valid time.');
+            return;
+        }
+
         const newBooking = {
             date: selectedDate,
             time: selectedTime,
@@ -64,15 +89,19 @@ function BookingForm({ availableTimes, onAddBooking, dispatch,  }) {
                 id="guests"
                 value={numberOfGuests}
                 onChange={handleGuestsChange}
+                required
             />
 
             <label htmlFor="occasion">Occasion</label>
-            <select id="occasion" value={selectedOccasion} onChange={handleOccasionChange}>
+            <select id="occasion" value={selectedOccasion} onChange={handleOccasionChange} required>
+                <option value="">Select an occasion</option>
                 <option>Birthday</option>
                 <option>Anniversary</option>
             </select>
 
-            <input type="submit" value="Make Your reservation" />
+            <div className="error-message">{error}</div>
+        
+            <button type="submit" disabled={error !== ''}>Make Your reservation</button>
         </form>
     );
 }
